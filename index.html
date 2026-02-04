@@ -1,1 +1,399 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="/favicon.ico"><title>React App</title></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="text/javascript" src="/static/js/main.50096e0c.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhilash Godishala — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --text-muted: #4a4a4a;
+      --accent: #0d9488;
+      --accent-soft: rgba(13, 148, 136, 0.12);
+      --border: #e5e3e0;
+      --max-width: 720px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem 1.5rem 4rem;
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    @media (min-width: 640px) {
+      body {
+        padding: 3rem 2rem 5rem;
+      }
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .contact span:not(.sep) {
+      margin-right: 0.25rem;
+    }
+
+    .sep {
+      color: var(--border);
+      user-select: none;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.25rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .summary {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .skills span {
+      display: inline-block;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      background: var(--accent-soft);
+      color: var(--text);
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Experience */
+    .job {
+      margin-bottom: 2rem;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .job-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .job-tech {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .job ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .job li {
+      margin-bottom: 0.4rem;
+    }
+
+    .job li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Education */
+    .edu-item {
+      margin: 0;
+    }
+
+    .edu-item .job-title {
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-item .job-meta {
+      margin-bottom: 0;
+    }
+
+    /* PDF link */
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #fff !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .pdf-link:hover {
+      background: #0f766e;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Print */
+    @media print {
+      :root {
+        --bg: #fff;
+        --border: #ddd;
+      }
+
+      body {
+        padding: 0;
+        font-size: 11pt;
+      }
+
+      header {
+        border-bottom-color: var(--border);
+      }
+
+      .pdf-link {
+        display: none;
+      }
+
+      section {
+        margin-bottom: 1.25rem;
+      }
+
+      .job {
+        margin-bottom: 1.25rem;
+        break-inside: avoid;
+      }
+
+      a {
+        color: var(--text);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Abhilash Godishala</h1>
+      <div class="contact">
+        <a href="mailto:abhilashgodisela@gmail.com">abhilashgodisela@gmail.com</a>
+        <span class="sep">·</span>
+        <span>+1 (732) 351 8846</span>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/abhilash-reddy-godishala/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/anabhilash" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Excellent team player and talented individual with more than 9 years of experience building highly scalable microservices for cloud-based software products. Strong exposure and sound knowledge in end-to-end full stack development using Java.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span>Java</span>
+        <span>Spring Boot</span>
+        <span>Spring Data</span>
+        <span>Hibernate</span>
+        <span>Apache Kafka</span>
+        <span>PostgreSQL</span>
+        <span>Ember JS</span>
+        <span>Angular</span>
+        <span>AWS Lambda</span>
+        <span>AWS ECS/EKS</span>
+        <span>Docker</span>
+        <span>Grafana</span>
+        <span>MongoDB</span>
+        <span>Python</span>
+        <span>Django</span>
+        <span>Data Structures</span>
+        <span>Algorithms</span>
+        <span>Distributed Systems</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Senior Full Stack Developer</span>
+          <span class="job-company">Deloitte</span>
+        </div>
+        <div class="job-meta">November 2024 – Present</div>
+        <ul>
+          <li>Designed and developed a payment workflow framework for Texas.gov using Spring Boot, supporting both simple payment flows and complex/custom workflows for pending payment lookup using unique keys.</li>
+          <li>Integrated Tyler Technologies payment wallet to enable secure, compliant payment processing across multiple state departments. Implemented production-grade security standards and supported ADS testing for regulatory compliance.</li>
+          <li>Built dynamic Angular components to update UI fields in real time based on user input and workflow state. Developed multi-page applications using the FeePay framework with MongoDB configuration and data ingestion.</li>
+          <li>Developed AWS Lambda functions to extract, load, and process invoices and pending fee data into systems and Amazon S3. Implemented Kafka schema evolution and validation using Confluent Schema Registry (Avro/JSON/Protobuf).</li>
+          <li>Configured and managed Kafka topics, partitions, and consumer groups for scalability and fault tolerance.</li>
+          <li>Designed and deployed containerized microservices on Amazon EKS, leveraging Kubernetes for orchestration, scaling, and high availability.</li>
+          <li>Implemented Change Data Capture (CDC) using Apache Kafka to synchronize RDBMS and NoSQL (MongoDB) data in near real time.</li>
+          <li>Followed an iterative, client-driven Agile approach with sprint planning, demos, walkthroughs, and continuous feedback.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Senior Product Engineer</span>
+          <span class="job-company">Digbi Health</span>
+        </div>
+        <div class="job-meta">January 2022 – November 2024</div>
+        <div class="job-tech">Java Spring Boot, Postgres, AWS Kinesis, CodePipeline, Grafana, Loki, ECS, Docker</div>
+        <ul>
+          <li>Built new microservices leveraging AWS SSM Parameter Store, Parameter Keystore, AWS RDS, Java 17, and Spring 3.X.</li>
+          <li>Implemented CI/CD with AWS CodePipeline and ECS for Blue/Green deployments.</li>
+          <li>Pushed logs to Grafana using Loki for centralized log management and debugging.</li>
+          <li>Consolidated Jotforms/Typeforms usage in the backend for HIPAA/SOC2 compliance, significantly increasing user and partner onboarding.</li>
+          <li>Executed migrations from V1 monolithic to V2 microservices architecture.</li>
+          <li>Used Kinesis Data Streams to sync data between monolith and microservices.</li>
+          <li>Designed a service to consolidate customer health reports and daily routines.</li>
+          <li>Automated health report generation with Thymeleaf templates and openhtmltopdf.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Senior Software Engineer (Backend)</span>
+          <span class="job-company">PartsAvatar Inc.</span>
+        </div>
+        <div class="job-meta">February 2021 – November 2021</div>
+        <div class="job-tech">Java Spring Boot, Hibernate, AWS EC2, Lambda, API Gateway, S3, SQS, SNS</div>
+        <ul>
+          <li><strong>Product Catalog:</strong> Implemented Lambdas to sync product scores affecting website listing position. Spring Boot, Jenkins, ElasticSearch, AWS Lambda.</li>
+          <li><strong>Products:</strong> Built AWS Lambda functions in Java to sync data from third-party suppliers. Spring Boot CLI jobs for inventory completeness and accuracy reporting.</li>
+          <li><strong>DB Microservice:</strong> Django implementation with Lambda API Gateway for CRUD operations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Member Technical Staff (Backend Engineer)</span>
+          <span class="job-company">Zoho — Chennai, Tamil Nadu</span>
+        </div>
+        <div class="job-meta">May 2017 – February 2021</div>
+        <div class="job-tech">Zoho One & Zoho Directory — end-to-end scalable microservices</div>
+        <ul>
+          <li><strong>Identity Management:</strong> Auto provisioning of users and groups via SCIM. Designed microservice for user/group lifecycle. Integrated with Azure, G Suite, Okta for onboarding/offboarding. Central management of users and groups across cloud products.</li>
+          <li><strong>Mix and Match Subscription:</strong> Implemented feature for customers to choose products from higher and lower editions; addon-based subscription model.</li>
+          <li><strong>IAM as a service:</strong> Consolidated SAML SSO, SCIM, MFA into Zoho Directory subscription product. Designed microservice to enforce paid subscription limits.</li>
+          <li><strong>User Unification:</strong> Designed Apache Kafka service consuming user info changes across 40 products; two-way sync so changes in one product reflect everywhere.</li>
+          <li>Management and optimization of servers; active caretaker of live servers for 40 Zoho cloud products.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Intern</span>
+          <span class="job-company">Zoho — Chennai, Tamil Nadu</span>
+        </div>
+        <div class="job-meta">March 2017 – May 2017</div>
+        <ul>
+          <li>Subscription Referral System: allowed customers to refer each other and earn referral points upon confirmation. End-to-end backend integration using Java servlets.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="job edu-item">
+        <div class="job-header">
+          <span class="job-title">Bachelor of Science, Computer Science Engineering</span>
+        </div>
+        <div class="job-meta">B.V. Raju Institute of Technology, Hyderabad, Telangana — 66.75% — 2013–2017</div>
+      </div>
+    </section>
+
+    <a class="pdf-link" href="Resume.pdf" target="_blank" rel="noopener">Download PDF resume</a>
+  </div>
+</body>
+</html>
